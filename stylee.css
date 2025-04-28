@@ -1,0 +1,728 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Default navbar background (sedikit gelap, transparan) */
+.navbar {
+  background: transparent;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.navbar .d-flex a img {
+  height: 32px;
+  width: auto;
+  max-height: 32px;
+  object-fit: contain;
+}
+
+.navbar.scrolling-active {
+  background-color: #00161e;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* biar ada bayangan */
+  transition: all 0.4s ease;
+}
+
+.navbar {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Logo image default size */
+.navbar-brand img {
+  height: 90px;
+  transition: height 0.3s ease;
+}
+
+/* logosize saat scroll */
+.navbar.scrolling-active .navbar-brand img {
+  height: 60px;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff;
+  font-weight: 500;
+  position: relative;
+  padding: 8px 15px;
+  transition: all 0.4s ease;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+/* GLOW HOVER & FOCUS */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #9b59b6; /* Ungu Neon */
+  text-shadow: 0 0 8px rgba(155, 89, 182, 0.8);
+}
+
+/* GARIS BAWAH EFEK */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #9b59b6, #6a00ff);
+  border-radius: 2px;
+  transition: transform 0.4s ease;
+}
+
+/* TAMPILKAN GARIS SAAT HOVER */
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link:focus::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* NAV-LINK ACTIVE STATE (link yang sedang diklik) */
+.navbar-nav .nav-link.active {
+  color: #feca1b; /* Gold kalau aktif */
+  text-shadow: 0 0 10px rgba(254, 202, 27, 0.8);
+}
+
+/* Responsive fix untuk mobile toggle */
+.navbar-toggler {
+  background-color: #feca1b;
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* Ukuran teks navbar */
+.navbar .nav-link {
+  transition: font-size 0.3s ease, padding 0.3s ease;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.navbar.scrolling-active .nav-link {
+  font-size: 0.9rem;
+  padding: 0.3rem 0.8rem;
+}
+
+#features {
+  position: relative;
+  background: linear-gradient(to right, #00161e, #002e47, #00161e);
+  overflow: hidden;
+  padding: 100px 0;
+  --animate-duration: 800ms;
+  --animate-delay: 2.3s;
+}
+
+.features-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.features-title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(to right, #ffee00, #ffcc00);
+  margin: 10px auto 0;
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.8);
+}
+.features-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #00ff90;
+  text-shadow: 0 0 8px rgba(0, 255, 183, 0.6);
+  margin-bottom: 20px;
+}
+
+.feature-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid #00bfff;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin: 10px;
+}
+
+.feature-card i {
+  text-shadow: 0 0 5px rgba(255, 255, 0, 0.4), /* Yellow glow */ 0 0 10px rgba(255, 255, 0, 0.4), 0 0 15px rgba(255, 255, 0, 0.4);
+}
+
+/* Hover efek */
+.feature-card:hover {
+  background-color: rgba(254, 202, 27, 0.1); /* emas semi transparan saat hover */
+  border-color: #feca1b; /* border berubah jadi emas */
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.4), /* glow biru sisa */ 0 0 25px rgba(254, 202, 27, 0.6); /* glow emas saat hover */
+  transform: scale(1.05) translateY(-5px);
+}
+/* Untuk card dalam carousel */
+
+/* hero */
+.hero h1 {
+  --animate-delay: 0.9s;
+}
+
+.hero p {
+  --animate-delay: 1.7s;
+}
+
+.hero a {
+  --animate-duration: 800ms;
+  --animate-delay: 2.3s;
+}
+
+.animate__animated.animate__flash {
+  --animate-duration: 4s;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* news */
+
+/* === News Section Title Styling (Clean Text + Glowing Line) === */
+.news-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgba(255, 0, 0, 0.678); 
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+/* Garis bawah glowing */
+.news-title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(to right, #ff0000, #ff0000);
+  margin: 10px auto 0;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+/* Base border dengan warna biru MLBB */
+.news-card {
+  border: 3px solid #ff0000;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 8px rgba(0, 191, 255, 0.2);
+}
+
+/* Glow lebih kuat saat hover */
+.news-card:hover {
+  border-color: #00bfff;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.5), 0 0 20px rgba(0, 191, 255, 0.4), 0 0 30px rgba(106, 0, 255, 0.3);
+  transform: scale(1.03);
+}
+
+.card:hover {
+  background-color: #9b59b6;
+  margin: relative;
+  box-shadow: 3px 3px 8px 8px rgb(0, 0, 0, 2);
+  transition: all 0.3s ease 0s;
+}
+
+#News .card {
+  transition: transform 0.3s ease;
+}
+
+/* Efek bergoyang saat hover */
+@keyframes wobble {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.news-card:hover {
+  animation: wobble 0.6s ease-in-out;
+  border-color: #00bfff;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.5), 0 0 20px rgba(0, 191, 255, 0.4), 0 0 30px rgba(106, 0, 255, 0.3);
+  transform: none;
+}
+
+/* Heroes border dan glowww*/
+#heroes {
+  position: relative;
+  background: url("IMAGE/img/NAVWALLZZ.webp") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+.heroes-overlay {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.6); /* overlay gelap */
+  width: 100%;
+  height: 100%;
+  padding: 100px 0;
+  z-index: 2;
+}
+
+#heroes .container {
+  position: relative;
+  z-index: 3;
+}
+
+/* Untuk membuat konten tetap menonjol */
+#heroes .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#heroes .carousel-inner {
+  border: 5px solid #ffcc00; /* warna emas */
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(255, 204, 0, 0.6), 0 0 10px rgba(0, 183, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  overflow: hidden;
+}
+
+/* Gambar slide dan efek zoom */
+#heroes .carousel-item {
+  height: 500px;
+}
+
+#heroes .carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#heroes .carousel-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Caption Styling */
+#heroes .carousel-caption {
+  font-family: "Poppins", sans-serif;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 12px;
+  bottom: 1.5rem;
+  z-index: 10;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+#heroes h5 {
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #ffcc00; /* gold title */
+}
+
+#heroes p {
+  font-size: 1rem;
+  color: #f1f1f1;
+}
+
+#heroes .btn {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+/* === RESPONSIVE FIX === */
+.heroes-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  color: #fb00ff;
+  text-shadow: 0 0 8px rgba(195, 0, 255, 0.6);
+  font-size: 3rem; /* Default desktop */
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+/* Garis bawah */
+.heroes-title::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, #00bfff, #6a00ff);
+  margin: 10px auto 0;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
+}
+
+/* Tablet (medium screen) */
+@media (max-width: 768px) {
+  .heroes-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Mobile (small screen) */
+@media (max-width: 576px) {
+  .heroes-title {
+    font-size: 2rem;
+  }
+}
+
+/* Garis bawah */
+.heroes-title::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, #00bfff, #6a00ff);
+  margin: 10px auto 0;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
+}
+
+/* Tablet (medium screen) */
+@media (max-width: 768px) {
+  .heroes-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Mobile (small screen) */
+@media (max-width: 576px) {
+  .heroes-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #heroes .carousel-item {
+    height: 300px;
+  }
+
+  #heroes .carousel-caption {
+    bottom: 1rem;
+    padding: 0.75rem;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  #heroes h5 {
+    font-size: 1.3rem;
+  }
+
+  #heroes p {
+    font-size: 0.85rem;
+  }
+
+  #heroes .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+
+/* Join with us */
+#join {
+  position: relative;
+  background: url("https://wallpapercave.com/wp/wp5965498.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  margin-top: 100px;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+}
+
+#join .overlay {
+  background-color: rgba(0, 0, 0, 0.65);
+  width: 100%;
+  padding: 80px 0;
+}
+
+/* FAQ */
+
+#faq {
+  padding-top: 100px;
+}
+
+.faq-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600; /* tebal maksimal */
+  font-size: 48px;
+  text-transform: uppercase;
+  color: #ffcc00;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 40px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* efek glow halus */
+}
+
+#faq .accordion {
+  --bs-accordion-bg: #feba17;
+}
+#faq .accordion-item {
+  color: #ffffff;
+}
+
+#faq .accordion-item {
+  color: #ffffff;
+}
+
+#faq .accordion-body {
+  color: #0f0f0f;
+  opacity: 70%;
+}
+#faq .accordion-button:focus {
+  box-shadow: none;
+}
+
+/* Garis bawah + Glow */
+.faq-title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(to right, #ffcc00, #ffaa00);
+  margin: 10px auto 0;
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(255, 204, 0, 0.8);
+}
+
+
+/* FOOTER */
+.footer-icon i {
+  font-size: 24px;
+  margin: 0 10px;
+  color: #fff;
+  transition: transform 0.2s;
+}
+.footer-icon i:hover {
+  transform: scale(2);
+  color: #0d6efd;
+}
+.footer {
+  width: 100%;
+  min-height: 50vh;
+  padding-top: 150px;
+  background-color: #001e29;
+  color: #fff;
+  padding: 40px 0;
+}
+
+.footer-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.footer-box .box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-box .box a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.footer-box a:hover {
+  color: #a7c957;
+}
+
+.footer-box .box p {
+  font-size: 15px;
+  line-height: 2;
+}
+
+.footer-box .box i {
+  margin-right: 5px;
+}
+
+.footer-box .box:nth-child(2) {
+  padding-left: 50px;
+}
+
+@media screen and (max-width: 975px) {
+  .footer-box .box:nth-child(2) {
+    padding-left: 80px;
+  }
+
+  .footer-box .box:nth-child(3) {
+    padding-left: 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer-box {
+    row-gap: 40px;
+  }
+  .footer-box .box:nth-child(2),
+  .footer-box .box:nth-child(3) {
+    padding: 0;
+  }
+}
+
+.footer-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+/* Box Copyright */
+.footer-copyright {
+  width: 100%;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-copyright p {
+  font-size: 0.9rem;
+  color: #f1f1f1;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-copyright p {
+  color: #ffcc00; /* gold */
+  text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+}
+
+.footer p:last-child {
+  opacity: 0.5;
+  font-size: 0.9rem;
+}
+
+.audio-controls {
+  position: fixed; /* Atau absolute, tergantung di mana Anda ingin menempatkannya */
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000; /* Pastikan berada di atas elemen lain */
+}
+
+.audio-controls button {
+  background-color: #feba17; /* Warna tombol */
+  color: #001e29; /* Warna teks/ikon */
+  border: none;
+  padding: 0.7rem 1.2rem;
+  margin-right: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.audio-controls button:hover {
+  background-color: #e0a800;
+}
+
+.audio-controls button i {
+  margin-right: 5px;
+}
+
+.mlbb-zone {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem; 
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #9b59b6, #00bfff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 5px rgba(155, 89, 182, 0.7), 0 0 10px rgba(0, 191, 255, 0.5);
+  animation: glowPulse 2s infinite alternate;
+  text-align: center;
+  margin-bottom: 0;
+  animation: glowing 2s infinite alternate;
+}
+
+/* Animasi glowww */
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 5px rgba(155, 89, 182, 0.7), 0 0 10px rgba(0, 191, 255, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(155, 89, 182, 1), 0 0 25px rgba(0, 191, 255, 0.8);
+  }
+}
+
